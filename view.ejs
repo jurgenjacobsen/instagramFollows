@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+        <title>Instagram Follows</title>
+
+        <style>
+            body {
+                font-family: 'Roboto', sans-serif;
+            }
+
+            ::-webkit-scrollbar {
+                width: 10px;
+            }
+        
+            ::-webkit-scrollbar-track {
+                background: #3f3f46;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #d4d4d8;
+                border-radius: 2.5px;
+                height: 36px;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #a1a1aa;
+            }
+        </style>
+    </head>
+
+    <body class="bg-zinc-800 text-white">
+        <nav class="bg-zinc-900 p-4 flex justify-between">
+            <div class="flex items-center space-x-4">
+                <img src="https://www.edigitalagency.com.au/wp-content/uploads/new-Instagram-logo-white-glyph.png" class="w-8 h-8" alt="Instagram Logo">
+                <h1 class="font-semibold text-lg">Instagram Follows</h1>
+                
+                <!--
+                <button class="bg-indigo-600 hover:bg-indigo-700 font-bold py-2 px-4 rounded">
+                    Button 1
+                </button>
+
+                <button class="bg-green-600 hover:bg-green-700 font-bold py-2 px-4 rounded">
+                    Button 2
+                </button>
+
+                <button class="bg-purple-500 hover:bg-purple-600 font-bold py-2 px-4 rounded">
+                    Button 3
+                </button>
+                -->
+            </div>
+
+            <button onclick="location.reload()" class="bg-gray-500 hover:bg-gray-700 font-bold py-2 px-4 rounded">
+                Refresh
+            </button>
+        </nav>
+
+        <div class="container mx-auto p-4">        
+            <div class="grid grid-cols-3 gap-4 p-4">
+                <!-- Column 1 -->
+                <div class="bg-zinc-900 p-4 rounded-lg">
+                
+                    <h3 class="font-semibold text-lg">Followers</h3>
+                    <p class="text-gray-500">
+                        These are the people that follow you.
+                    </p>
+
+                    <div class="bg-zinc-800  rounded p-4 mt-2 max-h-[82vh] overflow-y-scroll">
+                        <% followers.forEach((user) => { %>
+                            <div class="bg-zinc-900 p-2 mb-1 rounded-lg font-semibold text-gray-300">
+                                <a href="http://instagram.com/<%= user %>" target="_blank" rel="noopener noreferrer">
+                                    @<%= user %>
+                                </a>
+                            </div>
+                        <% })%>
+                    </div>
+                </div>
+            
+                <!-- Column 2 -->
+                <div class="bg-zinc-900 p-4 rounded-lg">
+                
+                    <h3 class="font-semibold text-lg">Following</h3>
+                    <p class="text-gray-500">
+                        These are the people that you follow.
+                    </p>
+
+                    <div class="bg-zinc-800  rounded p-4 mt-2 max-h-[82vh] overflow-y-scroll">
+                        <% following.forEach((user) => { %>
+                            <div class="bg-zinc-900 p-2 mb-1 rounded-lg font-semibold text-gray-300">
+                                <a href="http://instagram.com/<%= user %>" target="_blank" rel="noopener noreferrer">
+                                    @<%= user %>
+                                </a>
+                            </div>
+                        <% })%>
+                    </div>
+                </div>
+            
+                <!-- Column 3 -->
+                <div class="bg-zinc-900 p-4 rounded-lg">
+                
+                    <h3 class="font-semibold text-lg">Not mutual</h3>
+                    <p class="text-gray-500">
+                        These are the people you follow but they don't follow you back.
+                    </p>
+
+                    <div class="bg-zinc-800  rounded p-4 mt-2 max-h-[82vh] overflow-y-scroll">
+                        <% notMutual.forEach((user) => { %>
+                            <div class="bg-zinc-900 p-2 mb-1 rounded-lg font-semibold text-gray-300" id="notMutual_<%= user %>">
+                                <a href="http://instagram.com/<%= user %>" target="_blank" rel="noopener noreferrer">
+                                    @<%= user %>
+                                </a>
+                                
+                                <button onclick="removeUser('<%= user %>')" class="bg-red-500 hover:bg-red-700 font-bold px-2 rounded float-right">
+                                    Remove
+                                </button>
+                            </div>
+                        <% })%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        function removeUser(user) {
+            document.getElementById(`notMutual_${user}`).remove();
+        }
+    </script>
+</html>
