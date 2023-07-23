@@ -16,7 +16,7 @@ app.listen(3000, () => {
 function loadFollows() {
 
     const following_json = require('../data/following.json')['relationships_following'];
-    const followers_json = require('../data/followers.json');
+    const followers_json = require('../data/followers_1.json');
 
     const following = [];
     const followers = [];
