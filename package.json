@@ -1,32 +1,32 @@
 {
-  "name": "instagramfollows",
-  "version": "1.0.0",
-  "description": "See who you follow and who follows you, see who don't follow you back too.",
-  "main": "index.js",
+  "name": "instamutuals",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "test": "tsc && node out/index.js",
-    "start": "node out/index.js"
+    "dev": "vite --host",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build",
+    "css": "npx tailwindcss -i ./src/assets/base.css -o ./src/assets/main.css --watch"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jurgenjacobsen/instagramFollows.git"
-  },
-  "keywords": [
-    "instagram",
-    "follows",
-    "unfollows"
-  ],
-  "author": "jurgenjacobsen",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jurgenjacobsen/instagramFollows/issues"
-  },
-  "homepage": "https://github.com/jurgenjacobsen/instagramFollows#readme",
   "dependencies": {
-    "ejs": "^3.1.9",
-    "express": "^4.18.2"
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@types/express": "^4.17.17"
+    "@tsconfig/node22": "^22.0.0",
+    "@types/node": "^22.10.2",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/tsconfig": "^0.7.0",
+    "autoprefixer": "^10.4.20",
+    "npm-run-all2": "^7.0.2",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.6.3",
+    "vite": "^6.0.5",
+    "vite-plugin-vue-devtools": "^7.6.8",
+    "vue-tsc": "^2.1.10"
   }
 }
